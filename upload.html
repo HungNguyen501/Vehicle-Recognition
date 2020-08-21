@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+		<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+		<meta charset=utf-8 />
+		<title>JS Bin</title>
+		<!--[if IE]>
+		  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<h1>Image Classification</h1>
+
+		<h3>Select an image:</h3>
+		<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+			<label for="myfile">Browsing files:</label>
+			<input id="file-picker" onchange="readURL(this);" type="file" name="input_image" accept="image/*" multiple>
+			<input type="submit" value="Submit" >
+		</form>
+
+		<h3>Input Image:</h3>
+		<img id="input_image" src="image_icon.png" alt="input_image" height="400" />		
+
+	</body>
+</html>
+
+<script>
+
+	 function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#input_image')
+                        .attr('src', e.target.result)
+                        .height(400)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+</script>
