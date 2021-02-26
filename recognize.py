@@ -1,7 +1,3 @@
-# USAGE
-# python recognize.py --training ../images/training --testing ../images/testing
-# python recognize.py --training ../images/test2/training --testing ../images/test2/testing
-
 # import the necessary packages
 from localbinarypatterns import LocalBinaryPatterns
 from sklearn.svm import LinearSVC
